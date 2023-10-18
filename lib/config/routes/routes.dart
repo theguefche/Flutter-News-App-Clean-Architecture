@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_clean_architecture/features/auth/presentation/pages/login.dart';
 
 import '../../features/daily_news/domain/entities/article.dart';
 import '../../features/daily_news/presentation/pages/article_detail/article_detail.dart';
@@ -9,21 +10,25 @@ import '../../features/daily_news/presentation/pages/saved_article/saved_article
 class AppRoutes {
   static Route onGenerateRoutes(RouteSettings settings) {
     switch (settings.name) {
-      case '/':
+      case DailyNews.routeName:
         return _materialRoute(const DailyNews());
 
-      case '/ArticleDetails':
+      case ArticleDetailsView.routeName:
         return _materialRoute(ArticleDetailsView(article: settings.arguments as ArticleEntity));
 
-      case '/SavedArticles':
+      case SavedArticles.routeName:
         return _materialRoute(const SavedArticles());
+      
+      case LoginScreen.routeName:
+        return _materialRoute(LoginScreen());
         
       default:
-        return _materialRoute(const DailyNews());
+        return _materialRoute(LoginScreen());
     }
   }
 
   static Route<dynamic> _materialRoute(Widget view) {
     return MaterialPageRoute(builder: (_) => view);
   }
+  
 }

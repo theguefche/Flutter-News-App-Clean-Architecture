@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +11,9 @@ import '../../bloc/article/local/local_article_event.dart';
 import '../../bloc/article/local/local_article_state.dart';
 import '../../widgets/article_tile.dart';
 
+@RoutePage()
 class SavedArticles extends HookWidget {
+  static const routeName = '/SavedArticles';
   const SavedArticles({Key ? key}) : super(key: key);
 
   @override
